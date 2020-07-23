@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+s:629:"D:\phpStudy\PHPTutorial\WWW\bjsh/data/runtime/cache\c2\28681478a982b9abe6f758653291cb.php,D:\phpStudy\PHPTutorial\WWW\bjsh/data/runtime/cache\0f\a570fc8f2079da679868e1f4bbac40.php,D:\phpStudy\PHPTutorial\WWW\bjsh/data/runtime/cache\1b\c36a52f2c0523c10d9ab58a308d9c5.php,D:\phpStudy\PHPTutorial\WWW\bjsh/data/runtime/cache\13\afd0a46fc5a35e53fea20e059df0a6.php,D:\phpStudy\PHPTutorial\WWW\bjsh/data/runtime/cache\72\d1d2275794f7d833938c76ffc080e0.php,D:\phpStudy\PHPTutorial\WWW\bjsh/data/runtime/cache\df\e3181e654617c38993b8b2e64aabc0.php,D:\phpStudy\PHPTutorial\WWW\bjsh/data/runtime/cache\00\42313b268860290b8c315cf8b05c99.php";

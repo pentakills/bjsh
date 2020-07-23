@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>{$eyou.field.seo_title}</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0,minimal-ui" /> 
+  <meta name="description" content="{$eyou.field.seo_description}" /> 
+  <meta name="keywords" content="{$eyou.field.seo_keywords}" />
+  <link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
+  {eyou:static file="skin/js/jquery-1.10.1.min.js" /}
+{eyou:static file="skin/js/state.js" /}
+{eyou:static file="skin/css/bootstrap.min.css" /}
+{eyou:static file="skin/css/style1.css" /}
+{eyou:static file="skin/js/slick.min.js" /}
+
+  {eyou:static file="skin/css/basic.css" /} 
+  {eyou:static file="skin/css/common.css" /}
+  {eyou:static file="skin/css/global.css" /}  
+  {eyou:static file="skin/css/widget.css" /} 
+  {eyou:static file="skin/css/theme.css" /}
+  {eyou:static file="skin/css/color_0.css" /}
+  {eyou:static file="skin/css/style.css" /}  
+    <!--[if lte IE 9]>
+    {eyou:static file="skin/js/lteie9.js" /}
+    <![endif]--> 
+ </head> 
+ <!--[if lte IE 8]>
+    <div class="text-xs-center m-b-0 bg-blue-grey-100 alert">
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+        <span>×</span>
+    </button>
+    你正在使用一个 <strong>过时</strong> 的浏览器。请 <a href=https://browsehappy.com/ target=_blank>升级您的浏览器</a>，以提高您的体验。</div>
+<![endif]--> 
+ <body> 
+<!--header-s-->
+    {eyou:include file="header.htm"/}
+<!--header-e-->
+<section class="w-container bannerBox ">
+    <div class="banner" style="height: auto;"> <img src="{eyou:global name='web_attr_11' /}" alt="banner" title="" style=""  /> </div>
+  </section>
+    <div id="page">
+    <div class="container">
+      {eyou:include file="left.htm" /}
+      <div class="pageInfo">
+        <div class="content">
+          {eyou:include file="position.htm" /}
+          <div class="product pageIntro">
+            <div class="proCenImgs">
+              <div class="row">
+              {eyou:list titlelen='20' pagesize='6'}
+                <div class="proimg col-lg-4 col-md-4 col-sm-4 col-xs-6"> <a href="{$field.arcurl}"> <img src="{$field.litpic}" alt="{$field.title}"> <span>{$field.title}</span>
+                  <!--<div class="layer hidden-xs">
+                    <div class="title tc">
+                      <h3>{$field.title}</h3>
+                    </div>
+                    <div class="intro">
+                      <p> {$field.seo_description|html_msubstr=###,0,20,true}</p>
+                    </div>
+                  </div>-->
+                  </a> </div>
+                {/eyou:list}  
+              </div>
+            </div>
+            <div class="paginationBox tc">
+              <dd>
+              {eyou:pagelist listitem='index,pre,pageno,next,end' listsize='2' /}
+              </dd>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!--footer-s-->
+    {eyou:include file="footer.htm" /}
+  <!--footer-e-->
+  {eyou:ui open='off' /}
+ </body>
+</html>

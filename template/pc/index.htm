@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>{eyou:global name='web_title' /}</title>
+  <meta name="renderer" content="webkit" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0,minimal-ui" />
+  <meta name="description" content="{eyou:global name='web_description' /}" />
+  <meta name="keywords" content="{eyou:global name='web_keywords' /}" />
+  <link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  {eyou:static file="skin/css/basic.css" /}
+  {eyou:static file="skin/css/common.css" /}
+  {eyou:static file="skin/css/you.css" /}
+  {eyou:static file="skin/css/style.css" /}
+  <!--<script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/jq.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.superslide.2.1.1.js"></script>-->
+  <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.min1.js"></script>
+  <!--[if lte IE 9]>
+    {eyou:static file="skin/js/lteie9.js" /}
+    <![endif]-->
+  </head>
+  <!--[if lte IE 8]>
+    <div class="text-xs-center m-b-0 bg-blue-grey-100 alert">
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+        <span>×</span>
+    </button>
+    你正在使用一个 <strong>过时</strong> 的浏览器。请 <a href=https://browsehappy.com/ target=_blank>升级您的浏览器</a>，以提高您的体验。</div>
+<![endif]-->
+
+  <body>
+<!--header-s--> 
+{eyou:include file="header.htm" /} 
+<!--header-e--> 
+<!--main-s-->
+  <div class="ey-banner carousel slide" id="exampleCarouselDefault" e-page="index"> 
+   <ol class="carousel-indicators carousel-indicators-fall"> 
+      {eyou:adv pid='1' currentstyle='active'}
+      <li data-slide-to="{$key}" data-target="#exampleCarouselDefault" class="{$field.currentstyle}"></li>
+      {/eyou:adv}
+   </ol> 
+   <div class="carousel-inner" role="listbox"> 
+    {eyou:adv pid='1' currentstyle='active'}
+    <div class="carousel-item eyou-edit {$field.currentstyle}" e-id="{$field.id}" e-type="adv">
+      <a href="{$field.links}" title="{$field.title}" {$field.target}><img class="w-full" src="{$field.litpic}" srcset="{$field.litpic} 767w,{$field.litpic}" sizes="(max-width: 767px) 767px" /></a>
+    </div>
+    {/eyou:adv}
+    <a class="left carousel-control" href="#exampleCarouselDefault" role="button" data-slide="prev"> <span class="icon">&lt;</span> <span class="sr-only">Previous</span> </a>
+    <a class="right carousel-control" href="#exampleCarouselDefault" role="button" data-slide="next"> <span class="icon">&gt;</span> <span class="sr-only">Next</span> </a>
+   </div> 
+  </div>
+  
+    <main class="ey-index-body" e-page="index">
+		   <!--产品中心-->
+	   {eyou:channelartlist typeid='3'}
+        <!-- 自定义产品中心-->
+        <section class=" text-xs-center" style="background-color:#c22f32 ;width: 100%;padding: 30px 0;">
+            <div class="container">
+                <div class="col-lg-3 text-lg-center" style="color: #fff;">
+					<div class="pro-cont" >
+						<h2 style="color: #fff;">{eyou:field name='typename' /}</h2>
+						<h4 style="color: #fff;">ABOUT US</h4>
+						<div class="text-lg-left font-size-16">
+							{eyou:field name='seo_description' /}
+						</div>
+						<span  style="display: inline-block; border: 1px solid #fff;padding: 5px;margin-top: 10px;">
+						<a href="{eyou:field name='typeurl' /}">查看更多</a>
+						</span>			
+					</div>
+                </div>
+                <div class="col-lg-9 " style="padding: 30px;">
+					  {eyou:channel row="6" type ='son'}
+						<div class="pro-view col-lg-3 col-xs-12">
+							<div style="float: left;">
+								<div class="pro-tit">{$field.typename}</div>
+							<span><a href="{$field.typeurl}"><查看更多产品></a></span>
+							</div>
+							<div style="float: right;">
+								<img src="{$field.litpic}" alt="{$field.typename}" >
+							</div>
+						</div>
+						  {/eyou:channel} 
+                </div>
+            </div>
+        </section>
+        <!-- 自定义产品中心-->
+  
+ 
+      <section class="service_list_met_11_3 text-xs-center">
+        <div class="container">
+        	<div class="head" style="text-align: center;">
+            <h2 class="title newpro">产品推荐</h2>
+            <span>{eyou:field name='seo_description' /}</span>
+            <p class="desc newpro" style="margin: 10px auto;"></p>
+          </div>
+          <!--搜索开始-->
+   <!--<div class="i_box1 clearfix">
+    <div class="center">
+      <div class="i_box1_content clearfix">
+        <div class="search" style="margin-bottom: 0;">
+          <div class="fr">
+          {eyou:searchform type='default'}
+            <form method="get" action="{$field.action}">
+              {$field.hidden}
+              <input class="texta" type="text" name="keywords" placeholder="请输入关键字">
+              <input class="btna" type="submit" name="" value="搜索">
+            </form>
+          {/eyou:searchform}
+          </div>
+        </div>
+        <div class="search">
+          <p> <b>热门搜索：</b> {eyou:channel type="son" row='8' typeid='3'} <a href="{$field.typeurl}">{$field.typename}</a>{/eyou:channel} </p>
+        </div>
+      </div>
+    </div>
+  </div>-->
+          <!--搜索结束-->
+        <div class="title-box clearfix" >
+            
+         <!--   <ul class="tabs ulstyle" style="float: left;">
+            <li class="active newpro"> <a href="javascript:void(0);" onClick="tabspro(this);" data-typeid="{eyou:field name='typeid' /}" data-url="{eyou:field name='typeurl' /}" title="{eyou:field name='typename' /}">
+              <h3>推荐产品</h3>
+              </a> </li>
+            {eyou:channel row="6" type ='son'}
+            <li class="newpro">
+              <a href="javascript:void(0);" onClick="tabspro(this);" data-typeid="{$field.typeid}" data-url="{$field.typeurl}" title="{$field.typename}">
+                <h3>{$field.typename}</h3>
+              </a>
+            </li>
+            {/eyou:channel} 
+          </ul> -->
+    <!--      <ul class="tabs ulstyle">
+            <li class="active newpro"> <a href="{eyou:field name='typeurl' /}" onClick="tabspro(this);" data-typeid="{eyou:field name='typeid' /}" data-url="{eyou:field name='typeurl' /}" title="{eyou:field name='typename' /}">
+              <h3>MORE+ </h3>
+              </a> </li> -->
+            <!--{eyou:channel row="100" type ='son'}
+            <li class="newpro">
+              <a href="javascript:void(0);" onClick="tabspro(this);" data-typeid="{$field.typeid}" data-url="{$field.typeurl}" title="{$field.typename}">
+                <h3>{$field.typename}</h3>
+              </a>
+            </li>
+            {/eyou:channel} -->
+        <!--  </ul> -->
+        </div>
+        <ul class="list m-0 clearfix ulstyle tabspro" id="pro_{eyou:field name='typeid' /}">
+          {eyou:arclist row='8' titlelen='20' infolen='22' flag='c'}
+            <li class="item col-xs-12 col-md-6 col-lg-41 col-xxl-31 newpro col-xs-12p col-md-6p">
+            <div class="content"> <a href="{$field.arcurl}" title="{$field.title}" target="_self"> <img data-original="{$field.litpic}" alt="{$field.title}" src="{$field.litpic}" style="display: inline;">
+              <div class="txt">
+              	<h4>{$field.title}</h4>
+              <span class="more">MORE</span>
+              </div>
+              </a> </div>
+          </li>
+          {/eyou:arclist}
+        </ul>
+     <!--   {eyou:channel row="100" type='son' id='field'}
+        <ul class="list m-0 clearfix ulstyle tabspro" style="display: none;" id="pro_{$field.typeid}">
+          {eyou:arclist typeid='$field.typeid' row='8' titlelen='20' infolen='22' id='field2'}
+            <li class="item col-xs-12 col-md-6 col-lg-41 col-xxl-31 newpro col-xs-12p col-md-6p">
+            <div class="content"> <a href="{$field2.arcurl}" title="{$field2.title}" target="_self"> <img data-original="{$field2.litpic}" alt="{$field2.title}" src="{$field2.litpic}" style="display: inline;">
+              <div class="txt">
+              	<h4>{$field.title}</h4>
+              <span class="more">MORE</span>
+              </div>
+              </a> </div>
+          </li>
+          {/eyou:arclist}
+        </ul>
+        {/eyou:channel} -->
+      </section>
+    {/eyou:channelartlist}
+    <!--关于我们-->
+    {eyou:channelartlist typeid='8'}
+    <section class="about_list_met_11_3">
+      <div class="background">
+        <div style="height: 422px;" class="eyou-edit" e-id="206" e-type="upload">
+        {eyou:uiupload e-id='206' e-page="index"}
+          {$field.value}
+        {eyou:else /}
+          <img style="display: inline;" src="{eyou:global name='web_templets_pc' /}/skin/images/aboutpic.png" class="">
+        {/eyou:uiupload}
+        </div>
+      </div>
+      <div class="container">
+      	<!-- <div class="head" style="text-align: center;">
+           <h2 class="title newpro" style="color: #fff;">{eyou:global name='web_attr_19' /}</h2>
+            <p class="title newpro" style="color: #fff;font-size: 1.3em;font-weight: normal;margin: 0;padding: 0;">{eyou:field name='seo_description' /}</p> 
+			<span style="font-size: 1.3em;opacity: 1">{eyou:field name='seo_description' /}</span> 
+			<p class="desc newpro" style="margin: 10px auto;"></p> 
+          </div> -->
+        <div class="about-us col-md-12">
+          
+          <div class="content">
+            <div class="left col-md-5 col-sm-5 fl" >
+              <div class="img eyou-edit" e-id="208" e-type="upload" >
+                {eyou:uiupload e-id='208' e-page="index"}
+                  {$field.value}
+                {eyou:else /}
+                  <img style="display: inline;" src="{eyou:global name='web_attr_29' /}" class="">
+                {/eyou:uiupload}
+              </div>
+            </div>
+            <div class="right fl" style="margin-left: 10px;">
+              <div class="text" style="visibility: inherit; opacity: 1;">
+                <p class="desc newpro">
+                	<span style="font-size: 22px;font-weight: bold;margin-bottom: 5px;">{eyou:global name='web_title' /}</span>
+                <!--  <span>{eyou:field name='englist_name' /}</span> -->
+               <span>
+                {eyou:type addtable='single_content'}
+               {$field.content|html_msubstr=###,0,225}...
+                {/eyou:type}
+               </span>
+                <a href="{eyou:field name='typeurl' /}" title="{eyou:field name='typename' /}" class="btn-more fr" target="_blank">{eyou:lang name='yybl3' /}<i class="fa fa-angle-right"></i></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/eyou:channelartlist}
+	<!-- 应用案例 -->
+	{eyou:channelartlist typeid='66'}
+	  <section class="cases text-xs-center" >
+		  <div class="container">
+			  <div class="col-lg-3 case-left text-lg-center">
+				 <h2> {eyou:field name='typename' /}</h2>
+				 <h5>{eyou:field name='englist_name' /}</h5>	 
+				 <a href="{eyou:field name='typeurl' /}" title="{eyou:field name='typename' /}" class="btn-more " target="_blank">{eyou:lang name='yybl3' /}</a>				  
+			  </div>			
+			  <div class="col-lg-9 case-right" >
+				   {eyou:arclist  typeid='66' row='6'}
+				  <div class="col-lg-4 text-lg-center case-right-yy">
+					 <a href="{$field.arcurl}"> <img src="{$field.litpic}" alt=""></a>
+					  <div><span>{$field.title}</span></div>
+				  </div>
+				
+				{/eyou:arclist} 
+				  
+			  </div>
+		  </div>		
+		</section>
+	 {/eyou:channelartlist}
+
+<!--新闻资讯-->
+ 
+<section class="service_list_met_11_3 text-xs-center">
+	{eyou:channelartlist typeid='2'} 
+        	<div class="head" style="text-align: center;">
+            <h2 class="title newpro">{eyou:field name='typename' /}</h2>
+            <span>{eyou:field name='seo_description' /}</span>
+            <p class="desc newpro" style="margin: 10px auto;"></p>
+          </div>
+	{/eyou:channelartlist}  	  
+<!--新闻动态start-->
+<div class="news">
+    
+    <div class="container">
+		{eyou:channelartlist typeid='10'} 
+        <div class="list1 col-lg-4">
+            <div class="news-cat">
+                <div class="b">{eyou:field name='typename' /}</div>
+                <div class="e"><a href="{eyou:field name='typeurl' /}">MORE+</a></div>
+            </div>
+            <ul>
+				 {eyou:arclist typeid='10' limit='0,6'  titlelen='22' infolen='160' orderby='add_time'}
+				    {eyou:if condition='($i == 1)'}
+                 <li><a href="{$field.arcurl}"><img src="{$field.litpic}" width="368px" height="204px" alt=""/></a></li>
+				  {eyou:else /}
+                <li><a href="{$field.arcurl}">{$field.title}...</a></li>
+				 {/eyou:if}
+				  {/eyou:arclist}
+            </ul>
+        </div>
+		{/eyou:channelartlist}  
+       {eyou:channelartlist typeid='11'}
+       <div class="list1 col-lg-4">
+           <div class="news-cat">
+               <div class="b">{eyou:field name='typename' /}</div>
+               <div class="e"><a href="{eyou:field name='typeurl' /}">MORE+</a></div>
+           </div>
+           <ul>
+       		 {eyou:arclist typeid='11' limit='0,6'  titlelen='22' infolen='160' orderby='add_time'}
+       		    {eyou:if condition='($i == 1)'}
+                <li><a href="{$field.arcurl}"><img src="{$field.litpic}" width="368px" height="204px" alt=""/></a></li>
+       		  {eyou:else /}
+               <li><a href="{$field.arcurl}">{$field.title}...</a></li>
+       		 {/eyou:if}
+       		  {/eyou:arclist}
+           </ul>
+       </div>
+       {/eyou:channelartlist}  
+
+        {eyou:channelartlist typeid='80'}
+        <div class="list1 col-lg-4">
+            <div class="news-cat">
+                <div class="b">{eyou:field name='typename' /}</div>
+                <div class="e"><a href="{eyou:field name='typeurl' /}">MORE+</a></div>
+            </div>
+            <ul>
+        		 {eyou:arclist typeid='80' limit='0,6'  titlelen='22' infolen='160' orderby='add_time'}
+        		    {eyou:if condition='($i == 1)'}
+                 <li><a href="{$field.arcurl}"><img src="{$field.litpic}" width="368px" height="204px" alt=""/></a></li>
+        		  {eyou:else /}
+                <li><a href="{$field.arcurl}">{$field.title}...</a></li>
+        		 {/eyou:if}
+        		  {/eyou:arclist}
+            </ul>
+        </div>
+        {/eyou:channelartlist}  
+
+    </div>
+
+</div>
+<!--新闻动态end-->		  	  
+          </section>
+ 
+    <!--</div>-->
+  </main>
+<!--main-e--> 
+<!--footer-s--> 
+{eyou:include file="footer.htm" /} 
+<!--footer-e--> 
+
+
+{eyou:ui open='off' /}
+</body>
+</html>
